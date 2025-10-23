@@ -1,0 +1,26 @@
+<clickhouse>
+    <!-- Memory -->
+    <max_server_memory_usage>4294967296</max_server_memory_usage> <!-- 4GB -->
+    <mark_cache_size>104857600</mark_cache_size> <!-- 100MB -->
+    <!-- Connection -->
+    <max_connections>100</max_connections>
+    <max_concurrent_queries>100</max_concurrent_queries>
+    <max_table_size_to_drop>0</max_table_size_to_drop>
+    <!-- Logging -->
+    <asynchronous_metric_log remove="1"/>
+    <metric_log remove="1"/>
+    <query_thread_log remove="1" />
+    <query_log remove="1" />
+    <query_views_log remove="1" />
+    <part_log remove="1"/>
+    <session_log remove="1"/>
+    <text_log remove="1" />
+    <trace_log remove="1"/>
+    <crash_log remove="1"/>
+    <opentelemetry_span_log remove="1"/>
+    <zookeeper_log remove="1"/>
+    <!-- Merge -->
+    <merge_tree>
+        <max_bytes_to_merge_at_max_space_in_pool>1073741824</max_bytes_to_merge_at_max_space_in_pool>
+    </merge_tree>
+</clickhouse>
