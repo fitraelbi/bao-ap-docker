@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe7fa3c2-34de-4619-9d81-9c0aaa28aa87" name="Changes" comment="chore: setup docker implementation of the analytics-platform">
+    <list default="true" id="fe7fa3c2-34de-4619-9d81-9c0aaa28aa87" name="Changes" comment="feat: added health checks to all containers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
@@ -139,7 +139,7 @@
       <updated>1714468927219</updated>
       <workItem from="1761222370964" duration="15944000" />
       <workItem from="1762951583132" duration="898000" />
-      <workItem from="1764442649880" duration="1325000" />
+      <workItem from="1764442649880" duration="2025000" />
     </task>
     <task id="LOCAL-00001" summary="chore: setup docker implementation of the analytics-platform">
       <option name="closed" value="true" />
@@ -149,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761237794354</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: added health checks to all containers">
+      <option name="closed" value="true" />
+      <created>1764444214301</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1764444214301</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,6 +165,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="chore: setup docker implementation of the analytics-platform" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: setup docker implementation of the analytics-platform" />
+    <MESSAGE value="feat: added health checks to all containers" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: added health checks to all containers" />
   </component>
 </project>
