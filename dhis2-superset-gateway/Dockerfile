@@ -6,7 +6,7 @@ RUN apk add openjdk17 wget
 
 WORKDIR /app
 
-RUN wget https://bao-products-builds.s3.us-east-1.amazonaws.com/analytics-platform/master/dhis2-superset-gateway.jar
+RUN wget https://bao-products-builds.s3.us-east-1.amazonaws.com/dhis2-superset-gateway/master/dhis2-superset-gateway.jar
 
 RUN chmod +x dhis2-superset-gateway.jar
 
