@@ -17,7 +17,7 @@ RUN chown -R bao-admin:bao-admin /app
 
 USER bao-admin
 
-EXPOSE 8085
+EXPOSE 8092
 
 ENV JAVA_OPTS="-Xms512M -Xmx1024M"
 
