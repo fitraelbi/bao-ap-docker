@@ -1,0 +1,38 @@
+name: Release Analytics Platform
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'analytics-platform/**'
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create zip file
+        run: |
+          zip -r analytics-platform.zip analytics-platform
+
+      - name: Get current date
+        id: date
+        run: echo "date=$(date +'%Y.%m.%d-%H%M')" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: analytics-platform-${{ steps.date.outputs.date }}
+          name: Release Analytics Platform ${{ steps.date.outputs.date }}
+          files: analytics-platform.zip
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
