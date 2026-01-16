@@ -4,13 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe7fa3c2-34de-4619-9d81-9c0aaa28aa87" name="Changes" comment="fix: update jar download URL for dhis2-superset-gateway">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/bao-api-gateway.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/bao-data-pipeline.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/bao-identity.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/dhis2-superset-gateway.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/pulsar.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/superset.yml" afterDir="false" />
+    <list default="true" id="fe7fa3c2-34de-4619-9d81-9c0aaa28aa87" name="Changes" comment="chore: fixed pulsar Dockerfile to use alpine instead of ubuntu">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/analytics-platform-release.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/conventionalCommit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_prj.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analytics-platform/bao-api-gateway/config/bao-api-gateway.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analytics-platform/bao-data-pipeline/config/bao-data-pipeline-key.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analytics-platform/bao-data-pipeline/config/bao-data-pipeline.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analytics-platform/bao-identity/config/bao-identity.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analytics-platform/clickhouse/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analytics-platform/clickhouse/config/performance.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analytics-platform/data/analytics-platform/bao-data-pipeline/bao-ap-client-main/placeholder.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analytics-platform/db/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analytics-platform/db/init.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analytics-platform/dhis2-superset-gateway/config/dhis2-superset-gateway.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analytics-platform/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analytics-platform/nginx/config/analytics-platform.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analytics-platform/nginx/config/superset.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analytics-platform/superset/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analytics-platform/superset/config/superset_config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/bao-api-gateway.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/bao-api-gateway.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,6 +62,9 @@
     <commands />
     <urls />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="AISelfReview" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -56,40 +73,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Docker.dhis2-superset-gateway/Dockerfile.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml.clickhouse: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml.proxy: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/gnnko/projects/hisptz/bao-ap-docker&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Docker.analytics-platform: Compose Deployment.executor": "Run",
+    "Docker.dhis2-superset-gateway/Dockerfile.executor": "Run",
+    "Docker.docker-compose.yml.clickhouse: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml.proxy: Compose Deployment.executor": "Run",
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
+    "Docker.pulsar/Dockerfile.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/Users/gnnko/projects/hisptz/bao-ap-docker/analytics-platform",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.general",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecapSpentCounter">
-    <option name="endsOfQuotaMs" value="1767337224141" />
-    <option name="spentUsd" value="0.0277672" />
+    <option name="endsOfQuotaMs" value="1770271893425" />
+    <option name="spentUsd" value="0.037694253" />
   </component>
   <component name="RecapUselessUpdatesCounter">
-    <option name="suspendCountdown" value="5" />
+    <option name="suspendCountdown" value="1" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/analytics-platform" />
+      <recent name="$PROJECT_DIR$/compose" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/nginx/config" />
       <recent name="$PROJECT_DIR$/data/analytics-platform/bao-data-pipeline" />
@@ -97,7 +120,7 @@
       <recent name="$PROJECT_DIR$/base" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.dhis2-superset-gateway/Dockerfile">
+  <component name="RunManager" selected="Docker.pulsar/Dockerfile">
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -107,6 +130,14 @@
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
       <deployment type="dockerfile">
         <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="analytics-platform: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="analytics-platform/docker-compose.yml" />
+        </settings>
       </deployment>
       <method v="2" />
     </configuration>
@@ -140,25 +171,22 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yml.proxy: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
+    <configuration name="pulsar/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
         <settings>
-          <option name="services">
-            <list>
-              <option value="proxy" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
+          <option name="buildOnly" value="true" />
+          <option name="sourceFilePath" value="pulsar/Dockerfile" />
         </settings>
       </deployment>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.pulsar/Dockerfile" />
+        <item itemvalue="Docker.analytics-platform: Compose Deployment" />
         <item itemvalue="Docker.dhis2-superset-gateway/Dockerfile" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.clickhouse: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml.proxy: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -181,7 +209,7 @@
       <workItem from="1764442649880" duration="6019000" />
       <workItem from="1765298970234" duration="988000" />
       <workItem from="1766947129305" duration="3068000" />
-      <workItem from="1768568380220" duration="449000" />
+      <workItem from="1768568380220" duration="5744000" />
     </task>
     <task id="LOCAL-00001" summary="chore: setup docker implementation of the analytics-platform">
       <option name="closed" value="true" />
@@ -239,7 +267,23 @@
       <option name="project" value="LOCAL" />
       <updated>1766950661030</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="chore: added workflows to build docker images for ap services">
+      <option name="closed" value="true" />
+      <created>1768568863750</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1768568863750</updated>
+    </task>
+    <task id="LOCAL-00009" summary="chore: fixed pulsar Dockerfile to use alpine instead of ubuntu">
+      <option name="closed" value="true" />
+      <created>1768573950701</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1768573950701</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,6 +296,8 @@
     <MESSAGE value="fix: updated the download URL for dhis2-superset-gateway jar" />
     <MESSAGE value="fix: exposed port 8092 for dhis2-superset-gateway service&#10;Fixes #1" />
     <MESSAGE value="fix: update jar download URL for dhis2-superset-gateway" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: update jar download URL for dhis2-superset-gateway" />
+    <MESSAGE value="chore: added workflows to build docker images for ap services" />
+    <MESSAGE value="chore: fixed pulsar Dockerfile to use alpine instead of ubuntu" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: fixed pulsar Dockerfile to use alpine instead of ubuntu" />
   </component>
 </project>
