@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe7fa3c2-34de-4619-9d81-9c0aaa28aa87" name="Changes" comment="chore: added GitHub Actions workflow for releasing analytics platform">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/analytics-platform-release.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/analytics-platform-release.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/pulsar.yml" beforeDir="false" />
+    <list default="true" id="fe7fa3c2-34de-4619-9d81-9c0aaa28aa87" name="Changes" comment="chore: refactored pulsar to use the official docker image instead of building from scratch">
+      <change afterPath="$PROJECT_DIR$/analytics-platform/docker-compose.pulsar.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analytics-platform/dhis2-superset-gateway/config/dhis2-superset-gateway.conf" beforeDir="false" afterPath="$PROJECT_DIR$/analytics-platform/dhis2-superset-gateway/config/dhis2-superset-gateway.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/analytics-platform/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/analytics-platform/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pulsar/Dockerfile" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="29" />
+    <option name="cachedIndexableFilesCount" value="2530" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -57,34 +57,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Docker.analytics-platform: Compose Deployment.executor": "Run",
-    "Docker.dhis2-superset-gateway/Dockerfile.executor": "Run",
-    "Docker.docker-compose.yml.clickhouse: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml.proxy: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "Docker.pulsar/Dockerfile.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/gnnko/projects/hisptz/bao-ap-docker/analytics-platform",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.general",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.analytics-platform: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.dhis2-superset-gateway/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.clickhouse: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml.proxy: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.pulsar/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/gnnko/projects/hisptz/bao-ap-docker/analytics-platform/data/analytics-platform/pulsar/zookeper&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecapSpentCounter">
     <option name="endsOfQuotaMs" value="1770271893425" />
     <option name="spentUsd" value="0.051157553" />
@@ -94,10 +95,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/analytics-platform/data/analytics-platform/pulsar/zookeper" />
+      <recent name="$PROJECT_DIR$/analytics-platform/data/analytics-platform/pulsar" />
+      <recent name="$PROJECT_DIR$/analytics-platform/data/analytics-platform/pulsar/zookeeper" />
       <recent name="$PROJECT_DIR$/analytics-platform" />
       <recent name="$PROJECT_DIR$/compose" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/analytics-platform/data/analytics-platform/pulsar/zookeeper" />
       <recent name="$PROJECT_DIR$/nginx/config" />
       <recent name="$PROJECT_DIR$/data/analytics-platform/bao-data-pipeline" />
       <recent name="$PROJECT_DIR$/data/analytics-platform" />
@@ -193,7 +198,8 @@
       <workItem from="1764442649880" duration="6019000" />
       <workItem from="1765298970234" duration="988000" />
       <workItem from="1766947129305" duration="3068000" />
-      <workItem from="1768568380220" duration="7695000" />
+      <workItem from="1768568380220" duration="20491000" />
+      <workItem from="1768636094358" duration="681000" />
     </task>
     <task id="LOCAL-00001" summary="chore: setup docker implementation of the analytics-platform">
       <option name="closed" value="true" />
@@ -283,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768574830311</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="chore: refactored pulsar to use the official docker image instead of building from scratch">
+      <option name="closed" value="true" />
+      <created>1768576725103</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1768576725103</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,6 +313,7 @@
     <MESSAGE value="chore: added workflows to build docker images for ap services" />
     <MESSAGE value="chore: fixed pulsar Dockerfile to use alpine instead of ubuntu" />
     <MESSAGE value="chore: added GitHub Actions workflow for releasing analytics platform" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore: added GitHub Actions workflow for releasing analytics platform" />
+    <MESSAGE value="chore: refactored pulsar to use the official docker image instead of building from scratch" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: refactored pulsar to use the official docker image instead of building from scratch" />
   </component>
 </project>

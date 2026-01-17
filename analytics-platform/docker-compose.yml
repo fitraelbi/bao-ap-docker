@@ -1,3 +1,6 @@
+include:
+    - docker-compose.pulsar.yml
+
 services:
     ap-db:
         image: postgres:16
@@ -8,19 +11,6 @@ services:
             - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
         healthcheck:
             test: [ "CMD-SHELL", "pg_isready -U $$POSTGRES_USER" ]
-            interval: 10s
-            timeout: 5s
-            retries: 5
-        restart: unless-stopped
-    pulsar:
-        image: apachepulsar/pulsar:3.3.9
-        volumes:
-            - ./data/analytics-platform/pulsar/data:/pulsar/data
-            - ./data/analytics-platform/pulsar/logs:/pulsar/logs
-        command: bin/pulsar standalone
-        mem_limit: 6gb
-        healthcheck:
-            test: [ "CMD-SHELL", "pulsar-admin brokers healthcheck" ]
             interval: 10s
             timeout: 5s
             retries: 5
@@ -134,7 +124,7 @@ services:
         ports:
             - "9089:8092"
         volumes:
-            - ./dhis2-superset-gateway/config/dhis2-superset-gateway.conf:/opt/dhis2-superset-gateway/dhis2-superset-gateway.conf
+            - ./dhis2-superset-gateway/config/dhis2-superset-gateway.properties:/opt/dhis2-superset-gateway/dhis2-superset-gateway.properties
         depends_on:
             superset:
                 condition: service_healthy
